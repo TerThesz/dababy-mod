@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "@#",
+    "#@"
+  ],
+  "key": {
+    "@": {
+      "item": "minecraft:iron_ingot"
+    },
+    "#": {
+      "item": "minecraft:smooth_stone"
+    }
+  },
+  "result": {
+    "item": "damod:smooth_plate",
+    "count": 4
+  }
+}

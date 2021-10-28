@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "damod:block/coin_ore"
+    }
+  }
+}

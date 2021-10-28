@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "damod",
+  "version": "${version}",
+
+  "name": "DaMod",
+  "description": "Yeah Yeah! Lets gooo",
+  "authors": [
+    "TerThesz"
+  ],
+  "contact": {
+    "homepage": "https://terthesz.eu/",
+    "sources": "https://github.com/TerThesz/dababy-mod"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/modid/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "terthesz.dababy.mod.DababyMod"
+    ]
+  },
+  "mixins": [
+    "damod.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.17.x",
+    "java": ">=16"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
