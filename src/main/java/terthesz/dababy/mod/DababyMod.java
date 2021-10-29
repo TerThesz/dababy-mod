@@ -52,7 +52,7 @@ public class DababyMod implements ModInitializer {
 	
 	public static final Item COIN = new Item(new FabricItemSettings().group(DABABY_GROUP));
 
-	public static final Item MONEY = new Item(new FabricItemSettings().group(DABABY_GROUP).rarity(Rarity.EPIC));
+	public static final Item MONEY = new Item(new FabricItemSettings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
 
 	// Blocks
 	// TODO: sounds
