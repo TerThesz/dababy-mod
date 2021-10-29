@@ -5,6 +5,8 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 
 import net.minecraft.block.Block;
@@ -12,6 +14,9 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.Material;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.entity.EntityDimensions;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -40,6 +45,7 @@ import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
 import terthesz.dababy.mod.blocks.CustomSaplingBlock;
 import terthesz.dababy.mod.features.CustomSaplingFeature;
+import terthesz.dababy.mod.other.LootTableModifications;
 import terthesz.dababy.mod.tools.CustomAxeItem;
 import terthesz.dababy.mod.tools.CustomHoeItem;
 import terthesz.dababy.mod.tools.CustomPickaxeItem;
@@ -59,10 +65,14 @@ public class DababyMod implements ModInitializer {
 	public static final Item SMOOTH_STICK = new Item(new FabricItemSettings().group(DABABY_GROUP));
 	
 	public static final Item COIN = new Item(new FabricItemSettings().group(DABABY_GROUP));
-
 	public static final Item MONEY = new Item(new FabricItemSettings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
 
 	public static final Item DABABY_INGOT = new Item(new FabricItemSettings().group(DABABY_GROUP).rarity(Rarity.RARE));
+
+	public static final Item DROP_OF_SWAG = new Item(new FabricItemSettings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
+	public static final Item SWAG_CAPSULE = new Item(new FabricItemSettings().group(DABABY_GROUP));
+	public static final Item FULL_SWAG_CAPSULE = new Item(new FabricItemSettings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
+	public static final Item COMPRESSED_FULL_SWAG_CAPSULE = new Item(new FabricItemSettings().group(DABABY_GROUP).rarity(Rarity.RARE));
 
 	// Blocks
 	// TODO: sounds
@@ -72,6 +82,8 @@ public class DababyMod implements ModInitializer {
 
 	// TODO: Make it reinforced
 	public static final Block REINFORCED_GLASS = new Block(FabricBlockSettings.of(Material.GLASS).nonOpaque().hardness(2.0F).resistance(1200.0F).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool());
+
+	public static final Block DABABY_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).breakByHand(false).strength(5.0F).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool());
 
 	// Tools
 	public static ToolItem MONEY_SHOVEL = new ShovelItem(MoneyToolMaterial.INSTANCE, -0.5F, -3, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
@@ -135,10 +147,14 @@ public class DababyMod implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("damod", "smooth_stick"), SMOOTH_STICK);
 
 		Registry.register(Registry.ITEM, new Identifier("damod", "coin"), COIN);
-
 		Registry.register(Registry.ITEM, new Identifier("damod", "money"), MONEY);
 
 		Registry.register(Registry.ITEM, new Identifier("damod", "dababy_ingot"), DABABY_INGOT);
+
+		Registry.register(Registry.ITEM, new Identifier("damod", "drop_of_swag"), DROP_OF_SWAG);
+		Registry.register(Registry.ITEM, new Identifier("damod", "swag_capsule"), SWAG_CAPSULE);
+		Registry.register(Registry.ITEM, new Identifier("damod", "full_swag_capsule"), FULL_SWAG_CAPSULE);
+		Registry.register(Registry.ITEM, new Identifier("damod", "compressed_full_swag_capsule"), COMPRESSED_FULL_SWAG_CAPSULE);
 	
 		// Blocks
 		Registry.register(Registry.BLOCK, new Identifier("damod", "coin_ore"), COIN_ORE);
@@ -149,6 +165,9 @@ public class DababyMod implements ModInitializer {
 
 		Registry.register(Registry.BLOCK, new Identifier("damod", "reinforced_glass"), REINFORCED_GLASS);
 		Registry.register(Registry.ITEM, new Identifier("damod", "reinforced_glass"), new BlockItem(REINFORCED_GLASS, new FabricItemSettings().group(DABABY_GROUP)));
+
+		Registry.register(Registry.BLOCK, new Identifier("damod", "dababy_block"), DABABY_BLOCK);
+		Registry.register(Registry.ITEM, new Identifier("damod", "dababy_block"), new BlockItem(DABABY_BLOCK, new FabricItemSettings().group(DABABY_GROUP).rarity(Rarity.RARE)));
 
 		// World Generation
 		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier("damod", "coin_ore_generation"), COIN_ORE_GENERATION);
@@ -181,5 +200,9 @@ public class DababyMod implements ModInitializer {
 		// Render Stuff
 		BlockRenderLayerMap.INSTANCE.putBlock(COIN_SAPLING, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(REINFORCED_GLASS, RenderLayer.getTranslucent());
+
+		// Loot Table Modifications
+		LootTableModifications ltm = new LootTableModifications();
+		ltm.modify();
 	}
 }

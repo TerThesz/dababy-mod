@@ -14,7 +14,7 @@ public class DababyToolMaterial implements ToolMaterial {
 
   @Override
   public float getMiningSpeedMultiplier() {
-    return 5.0F;
+    return 8.0F;
   }
 
   @Override
@@ -24,7 +24,7 @@ public class DababyToolMaterial implements ToolMaterial {
 
   @Override
   public int getMiningLevel() {
-    return 2;
+    return 3;
   }
 
   @Override

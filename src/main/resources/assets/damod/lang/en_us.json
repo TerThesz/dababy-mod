@@ -26,5 +26,14 @@
   "item.damod.dababy_pickaxe": "DaPickaxe",
   "item.damod.dababy_axe": "DaAxe",
   "item.damod.dababy_hoe": "DaHoe",
-  "block.damod.reinforced_glass": "Reinforced Glass"
+  "block.damod.reinforced_glass": "Reinforced Glass",
+  "item.damod.swag_capsule": "Swag Capsule",
+  "item.damod.swag_capsule.tooltip": "Swag Capsule",
+  "item.damod.full_swag_capsule": "Full Swag Capsule",
+  "item.damod.full_swag_capsule.tooltip": "Full Swag Capsule",
+  "item.damod.compressed_full_swag_capsule": "Compressed Full Swag Capsule",
+  "item.damod.compressed_full_swag_capsule.tooltip": "Compressed Full Swag Capsule",
+  "item.damod.drop_of_swag": "Drop o' Swag",
+  "item.damod.drop_of_swag.tooltip": "Drop o' Swag",
+  "block.damod.dababy_block": "Dababy Block"
 }
