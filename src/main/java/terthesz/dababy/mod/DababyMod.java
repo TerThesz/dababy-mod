@@ -68,10 +68,10 @@ public class DababyMod implements ModInitializer {
 	// TODO: sounds
 	public static final Block COIN_ORE = new Block(FabricBlockSettings.of(Material.METAL).breakByHand(false).strength(3.0f).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool());
 	
-	// TODO: Break only with money pickaxe
 	public static final Block DABABY_ORE = new Block(FabricBlockSettings.of(Material.METAL).breakByHand(false).strength(5.0F).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool());
 
-	public static final Block REINFORCED_GLASS = new Block(FabricBlockSettings.of(Material.GLASS).strength(2.0F).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool());
+	// TODO: Make it reinforced
+	public static final Block REINFORCED_GLASS = new Block(FabricBlockSettings.of(Material.GLASS).nonOpaque().hardness(2.0F).resistance(1200.0F).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool());
 
 	// Tools
 	public static ToolItem MONEY_SHOVEL = new ShovelItem(MoneyToolMaterial.INSTANCE, -0.5F, -3, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
