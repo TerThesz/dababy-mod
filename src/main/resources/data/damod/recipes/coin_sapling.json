@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#@#",
+    " @ "
+  ],
+  "key": {
+    "@": {
+      "item": "minecraft:stick"
+    },
+    "#": {
+      "item": "damod:coin"
+    }
+  },
+  "result": {
+    "item": "damod:coin_sapling",
+    "count": 1
+  }
+}

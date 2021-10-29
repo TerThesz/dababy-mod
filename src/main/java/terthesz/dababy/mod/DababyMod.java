@@ -18,6 +18,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
@@ -50,6 +51,8 @@ public class DababyMod implements ModInitializer {
 	public static final Item SMOOTH_STICK = new Item(new FabricItemSettings().group(DABABY_GROUP));
 	
 	public static final Item COIN = new Item(new FabricItemSettings().group(DABABY_GROUP));
+
+	public static final Item MONEY = new Item(new FabricItemSettings().group(DABABY_GROUP).rarity(Rarity.EPIC));
 
 	// Blocks
 	// TODO: sounds
@@ -91,6 +94,8 @@ public class DababyMod implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("damod", "smooth_stick"), SMOOTH_STICK);
 
 		Registry.register(Registry.ITEM, new Identifier("damod", "coin"), COIN);
+
+		Registry.register(Registry.ITEM, new Identifier("damod", "money"), MONEY);
 	
 		// Blocks
 		Registry.register(Registry.BLOCK, new Identifier("damod", "coin_ore"), COIN_ORE);
@@ -110,5 +115,8 @@ public class DababyMod implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("damod", "money_leaves"), new BlockItem(MONEY_LEAVES, new FabricItemSettings().group(DABABY_GROUP)));
 
 		BlockRenderLayerMap.INSTANCE.putBlock(COIN_SAPLING, RenderLayer.getCutout());
+
+		// TODO: Saplign recipe
+		// TODO: Loot tables
 	}
 }
