@@ -43,6 +43,7 @@ import terthesz.dababy.mod.features.CustomSaplingFeature;
 import terthesz.dababy.mod.tools.CustomAxeItem;
 import terthesz.dababy.mod.tools.CustomHoeItem;
 import terthesz.dababy.mod.tools.CustomPickaxeItem;
+import terthesz.dababy.mod.tools.DababyToolMaterial;
 import terthesz.dababy.mod.tools.MoneyToolMaterial;
 
 public class DababyMod implements ModInitializer {
@@ -61,10 +62,33 @@ public class DababyMod implements ModInitializer {
 
 	public static final Item MONEY = new Item(new FabricItemSettings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
 
+	public static final Item DABABY_INGOT = new Item(new FabricItemSettings().group(DABABY_GROUP).rarity(Rarity.RARE));
+
 	// Blocks
 	// TODO: sounds
 	public static final Block COIN_ORE = new Block(FabricBlockSettings.of(Material.METAL).breakByHand(false).strength(3.0f).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool());
 	
+	// TODO: Break only with money pickaxe
+	public static final Block DABABY_ORE = new Block(FabricBlockSettings.of(Material.METAL).breakByHand(false).strength(5.0F).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool());
+
+	public static final Block REINFORCED_GLASS = new Block(FabricBlockSettings.of(Material.GLASS).strength(2.0F).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool());
+
+	// Tools
+	public static ToolItem MONEY_SHOVEL = new ShovelItem(MoneyToolMaterial.INSTANCE, -0.5F, -3, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
+	public static ToolItem MONEY_SWORD = new SwordItem(MoneyToolMaterial.INSTANCE, 1, -2.4F, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
+
+	public static ToolItem MONEY_PICKAXE = new CustomPickaxeItem(MoneyToolMaterial.INSTANCE, -1, -2.8F, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
+	public static ToolItem MONEY_AXE = new CustomAxeItem(MoneyToolMaterial.INSTANCE, 4, -3.1F, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
+	public static ToolItem MONEY_HOE = new CustomHoeItem(MoneyToolMaterial.INSTANCE, -4, -1, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
+
+
+	public static ToolItem DABABY_SHOVEL = new ShovelItem(DababyToolMaterial.INSTANCE, 0.5F, -3, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.RARE));
+	public static ToolItem DABABY_SWORD = new SwordItem(DababyToolMaterial.INSTANCE, 2, -2.4F, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.RARE));
+
+	public static ToolItem DABABY_PICKAXE = new CustomPickaxeItem(DababyToolMaterial.INSTANCE, 0, -2.8F, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.RARE));
+	public static ToolItem DABABY_AXE = new CustomAxeItem(DababyToolMaterial.INSTANCE, 4, -3.1F, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.RARE));
+	public static ToolItem DABABY_HOE = new CustomHoeItem(DababyToolMaterial.INSTANCE, -4, -1, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.RARE));
+
 	// World Generation
 	public static final ConfiguredFeature<?, ?> COIN_ORE_GENERATION = Feature.ORE
 		.configure(new OreFeatureConfig(
@@ -75,6 +99,16 @@ public class DababyMod implements ModInitializer {
 			UniformHeightProvider.create(YOffset.aboveBottom(0), YOffset.fixed(40))))
 		.spreadHorizontally()
 		.repeat(30);
+
+	public static final ConfiguredFeature<?, ?> DABABY_ORE_GENERATION = Feature.ORE
+		.configure(new OreFeatureConfig(
+			OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
+			DABABY_ORE.getDefaultState(),
+			5))
+		.range(new RangeDecoratorConfig(
+			UniformHeightProvider.create(YOffset.aboveBottom(0), YOffset.fixed(20))))
+		.spreadHorizontally()
+		.repeat(15);
 
 	// Coin Tree
 	public static final Block MONEY_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).breakByTool(FabricToolTags.HOES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
@@ -91,15 +125,6 @@ public class DababyMod implements ModInitializer {
 
 	public static final CustomSaplingBlock COIN_SAPLING = new CustomSaplingBlock(new CustomSaplingFeature(MONEY_TREE), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING));
 
-
-	// Tools
-	public static ToolItem MONEY_SHOVEL = new ShovelItem(MoneyToolMaterial.INSTANCE, -0.5F, -3, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
-	public static ToolItem MONEY_SWORD = new SwordItem(MoneyToolMaterial.INSTANCE, 1, -2.4F, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
-
-	public static ToolItem MONEY_PICKAXE = new CustomPickaxeItem(MoneyToolMaterial.INSTANCE, -1, -2.8F, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
-	public static ToolItem MONEY_AXE = new CustomAxeItem(MoneyToolMaterial.INSTANCE, 4, -3.1F, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
-	public static ToolItem MONEY_HOE = new CustomHoeItem(MoneyToolMaterial.INSTANCE, -4, -1, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
-
 	@Override
 	public void onInitialize() {
 		// Dababy Creative Menu Item
@@ -112,13 +137,23 @@ public class DababyMod implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("damod", "coin"), COIN);
 
 		Registry.register(Registry.ITEM, new Identifier("damod", "money"), MONEY);
+
+		Registry.register(Registry.ITEM, new Identifier("damod", "dababy_ingot"), DABABY_INGOT);
 	
 		// Blocks
 		Registry.register(Registry.BLOCK, new Identifier("damod", "coin_ore"), COIN_ORE);
 		Registry.register(Registry.ITEM, new Identifier("damod", "coin_ore"), new BlockItem(COIN_ORE, new FabricItemSettings().group(DABABY_GROUP)));
 
+		Registry.register(Registry.BLOCK, new Identifier("damod", "dababy_ore"), DABABY_ORE);
+		Registry.register(Registry.ITEM, new Identifier("damod", "dababy_ore"), new BlockItem(DABABY_ORE, new FabricItemSettings().group(DABABY_GROUP)));
+
+		Registry.register(Registry.BLOCK, new Identifier("damod", "reinforced_glass"), REINFORCED_GLASS);
+		Registry.register(Registry.ITEM, new Identifier("damod", "reinforced_glass"), new BlockItem(REINFORCED_GLASS, new FabricItemSettings().group(DABABY_GROUP)));
+
 		// World Generation
 		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier("damod", "coin_ore_generation"), COIN_ORE_GENERATION);
+
+		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier("damod", "dababy_ore_generation"), DABABY_ORE_GENERATION);
 
 		// Coin Tree
 		RegistryKey<ConfiguredFeature<?, ?>> MONEY_TREE_RK = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier("damod", "money_tree"));
@@ -129,14 +164,22 @@ public class DababyMod implements ModInitializer {
 
 		Registry.register(Registry.BLOCK, new Identifier("damod", "money_leaves"), MONEY_LEAVES);
 		Registry.register(Registry.ITEM, new Identifier("damod", "money_leaves"), new BlockItem(MONEY_LEAVES, new FabricItemSettings().group(DABABY_GROUP)));
-
-		BlockRenderLayerMap.INSTANCE.putBlock(COIN_SAPLING, RenderLayer.getCutout());
-	
+				
 		// Tools
 		Registry.register(Registry.ITEM, new Identifier("damod", "money_shovel"), MONEY_SHOVEL);
 		Registry.register(Registry.ITEM, new Identifier("damod", "money_sword"), MONEY_SWORD);
 		Registry.register(Registry.ITEM, new Identifier("damod", "money_pickaxe"), MONEY_PICKAXE);
 		Registry.register(Registry.ITEM, new Identifier("damod", "money_axe"), MONEY_AXE);
 		Registry.register(Registry.ITEM, new Identifier("damod", "money_hoe"), MONEY_HOE);
+		
+		Registry.register(Registry.ITEM, new Identifier("damod", "dababy_shovel"), DABABY_SHOVEL);
+		Registry.register(Registry.ITEM, new Identifier("damod", "dababy_sword"), DABABY_SWORD);
+		Registry.register(Registry.ITEM, new Identifier("damod", "dababy_pickaxe"), DABABY_PICKAXE);
+		Registry.register(Registry.ITEM, new Identifier("damod", "dababy_axe"), DABABY_AXE);
+		Registry.register(Registry.ITEM, new Identifier("damod", "dababy_hoe"), DABABY_HOE);
+
+		// Render Stuff
+		BlockRenderLayerMap.INSTANCE.putBlock(COIN_SAPLING, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(REINFORCED_GLASS, RenderLayer.getTranslucent());
 	}
 }

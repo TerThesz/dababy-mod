@@ -17,5 +17,14 @@
   "item.damod.money_sword": "Money Sword",
   "item.damod.money_pickaxe": "Money Pickaxe",
   "item.damod.money_axe": "Money Axe",
-  "item.damod.money_hoe": "Money Hoe"
+  "item.damod.money_hoe": "Money Hoe",
+  "block.damod.dababy_ore": "DaOre",
+  "item.damod.dababy_ingot": "DaIngot",
+  "item.damod.dababy_ingot.tooltip": "DaIngot",
+  "item.damod.dababy_shovel": "DaShovel",
+  "item.damod.dababy_sword": "DaSword",
+  "item.damod.dababy_pickaxe": "DaPickaxe",
+  "item.damod.dababy_axe": "DaAxe",
+  "item.damod.dababy_hoe": "DaHoe",
+  "block.damod.reinforced_glass": "Reinforced Glass"
 }

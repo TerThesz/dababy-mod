@@ -15,5 +15,7 @@ public class DababyMixin {
   @Inject(method = "addDefaultOres(Lnet/minecraft/world/biome/GenerationSettings$Builder;)V", at = @At("TAIL"))
   private static void addDefaultOres(GenerationSettings.Builder builder, CallbackInfo ci) {
     builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, DababyMod.COIN_ORE_GENERATION);
+
+    builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, DababyMod.DABABY_ORE_GENERATION);
   }
 }

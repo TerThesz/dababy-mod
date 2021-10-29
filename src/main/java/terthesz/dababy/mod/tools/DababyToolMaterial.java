@@ -4,12 +4,12 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 import terthesz.dababy.mod.DababyMod;
 
-public class MoneyToolMaterial implements ToolMaterial {
-  public static final MoneyToolMaterial INSTANCE = new MoneyToolMaterial();
+public class DababyToolMaterial implements ToolMaterial {
+  public static final DababyToolMaterial INSTANCE = new DababyToolMaterial();
 
   @Override
   public int getDurability() {
-    return 250;
+    return 1500;
   }
 
   @Override
@@ -24,7 +24,7 @@ public class MoneyToolMaterial implements ToolMaterial {
 
   @Override
   public int getMiningLevel() {
-    return 3;
+    return 2;
   }
 
   @Override
@@ -34,6 +34,6 @@ public class MoneyToolMaterial implements ToolMaterial {
 
   @Override
   public Ingredient getRepairIngredient() {
-      return Ingredient.ofItems(DababyMod.MONEY);
+      return Ingredient.ofItems(DababyMod.DABABY_INGOT);
   }
 }
