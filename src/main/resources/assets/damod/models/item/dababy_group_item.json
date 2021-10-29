@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "damod:item/dababy"
+    "layer0": "damod:item/dababy_group_item"
   }
 }

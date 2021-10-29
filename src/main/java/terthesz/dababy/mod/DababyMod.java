@@ -12,10 +12,14 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.Material;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.item.AxeItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ShovelItem;
+import net.minecraft.item.SwordItem;
+import net.minecraft.item.ToolItem;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
@@ -37,6 +41,10 @@ import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
 import terthesz.dababy.mod.blocks.CustomSaplingBlock;
 import terthesz.dababy.mod.features.CustomSaplingFeature;
+import terthesz.dababy.mod.tools.CustomAxeItem;
+import terthesz.dababy.mod.tools.CustomHoeItem;
+import terthesz.dababy.mod.tools.CustomPickaxeItem;
+import terthesz.dababy.mod.tools.MoneyToolMaterial;
 
 public class DababyMod implements ModInitializer {
 	// Dababy Creative Menu Group
@@ -84,6 +92,15 @@ public class DababyMod implements ModInitializer {
 
 	public static final CustomSaplingBlock COIN_SAPLING = new CustomSaplingBlock(new CustomSaplingFeature(MONEY_TREE), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING));
 
+
+	// Tools
+	public static ToolItem MONEY_SHOVEL = new ShovelItem(MoneyToolMaterial.INSTANCE, 1, 0.5F, new Item.Settings().group(DABABY_GROUP));
+	public static ToolItem MONEY_SWORD = new SwordItem(MoneyToolMaterial.INSTANCE, 2, 2, new Item.Settings().group(DABABY_GROUP));
+
+	public static ToolItem MONEY_PICKAXE = new CustomPickaxeItem(MoneyToolMaterial.INSTANCE, 1, 0, new Item.Settings().group(DABABY_GROUP));
+	public static ToolItem MONEY_AXE = new CustomAxeItem(MoneyToolMaterial.INSTANCE, 1, 5, new Item.Settings().group(DABABY_GROUP));
+	public static ToolItem MONEY_HOE = new CustomHoeItem(MoneyToolMaterial.INSTANCE, 3, -3, new Item.Settings().group(DABABY_GROUP));
+
 	@Override
 	public void onInitialize() {
 		// Dababy Creative Menu Item
@@ -115,8 +132,8 @@ public class DababyMod implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("damod", "money_leaves"), new BlockItem(MONEY_LEAVES, new FabricItemSettings().group(DABABY_GROUP)));
 
 		BlockRenderLayerMap.INSTANCE.putBlock(COIN_SAPLING, RenderLayer.getCutout());
-
-		// TODO: Saplign recipe
-		// TODO: Loot tables
+	
+		// Tools
+		Registry.register(Registry.ITEM, new Identifier("damod", "money_shovel"), MONEY_SHOVEL);
 	}
 }
