@@ -94,12 +94,12 @@ public class DababyMod implements ModInitializer {
 
 
 	// Tools
-	public static ToolItem MONEY_SHOVEL = new ShovelItem(MoneyToolMaterial.INSTANCE, 1, 0.5F, new Item.Settings().group(DABABY_GROUP));
-	public static ToolItem MONEY_SWORD = new SwordItem(MoneyToolMaterial.INSTANCE, 2, 2, new Item.Settings().group(DABABY_GROUP));
+	public static ToolItem MONEY_SHOVEL = new ShovelItem(MoneyToolMaterial.INSTANCE, 1, 0.5F, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
+	public static ToolItem MONEY_SWORD = new SwordItem(MoneyToolMaterial.INSTANCE, 2, 2, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
 
-	public static ToolItem MONEY_PICKAXE = new CustomPickaxeItem(MoneyToolMaterial.INSTANCE, 1, 0, new Item.Settings().group(DABABY_GROUP));
-	public static ToolItem MONEY_AXE = new CustomAxeItem(MoneyToolMaterial.INSTANCE, 1, 5, new Item.Settings().group(DABABY_GROUP));
-	public static ToolItem MONEY_HOE = new CustomHoeItem(MoneyToolMaterial.INSTANCE, 3, -3, new Item.Settings().group(DABABY_GROUP));
+	public static ToolItem MONEY_PICKAXE = new CustomPickaxeItem(MoneyToolMaterial.INSTANCE, 1, 0, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
+	public static ToolItem MONEY_AXE = new CustomAxeItem(MoneyToolMaterial.INSTANCE, 1, 5, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
+	public static ToolItem MONEY_HOE = new CustomHoeItem(MoneyToolMaterial.INSTANCE, 3, -3, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
 
 	@Override
 	public void onInitialize() {
@@ -135,5 +135,9 @@ public class DababyMod implements ModInitializer {
 	
 		// Tools
 		Registry.register(Registry.ITEM, new Identifier("damod", "money_shovel"), MONEY_SHOVEL);
+		Registry.register(Registry.ITEM, new Identifier("damod", "money_sword"), MONEY_SWORD);
+		Registry.register(Registry.ITEM, new Identifier("damod", "money_pickaxe"), MONEY_PICKAXE);
+		Registry.register(Registry.ITEM, new Identifier("damod", "money_axe"), MONEY_AXE);
+		Registry.register(Registry.ITEM, new Identifier("damod", "money_hoe"), MONEY_HOE);
 	}
 }

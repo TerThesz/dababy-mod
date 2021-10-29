@@ -12,5 +12,10 @@
   "block.damod.coin_sapling": "Coin Sapling",
   "block.damod.money_leaves": "Money Leaves",
   "item.damod.money": "Money",
-  "item.damod.money.tooltip": "Money"
+  "item.damod.money.tooltip": "Money",
+  "item.damod.money_shovel": "Money Shovel",
+  "item.damod.money_sword": "Money Sword",
+  "item.damod.money_pickaxe": "Money Pickaxe",
+  "item.damod.money_axe": "Money Axe",
+  "item.damod.money_hoe": "Money Hoe"
 }
