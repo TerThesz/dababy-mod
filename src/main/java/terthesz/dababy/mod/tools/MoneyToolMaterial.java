@@ -9,27 +9,27 @@ public class MoneyToolMaterial implements ToolMaterial {
 
   @Override
   public int getDurability() {
-      return 250;
+    return 250;
   }
 
   @Override
   public float getMiningSpeedMultiplier() {
-      return 5.0F;
+    return 5.0F;
   }
 
   @Override
   public float getAttackDamage() {
-      return 4.0F;
+    return 4.0F;
   }
 
   @Override
   public int getMiningLevel() {
-      return 2;
+    return 2;
   }
 
   @Override
   public int getEnchantability() {
-      return 15;
+    return 15;
   }
 
   @Override

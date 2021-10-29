@@ -12,7 +12,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.Material;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.item.AxeItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -94,12 +93,12 @@ public class DababyMod implements ModInitializer {
 
 
 	// Tools
-	public static ToolItem MONEY_SHOVEL = new ShovelItem(MoneyToolMaterial.INSTANCE, 1, 0.5F, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
-	public static ToolItem MONEY_SWORD = new SwordItem(MoneyToolMaterial.INSTANCE, 2, 2, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
+	public static ToolItem MONEY_SHOVEL = new ShovelItem(MoneyToolMaterial.INSTANCE, -0.5F, -3, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
+	public static ToolItem MONEY_SWORD = new SwordItem(MoneyToolMaterial.INSTANCE, 1, -2.4F, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
 
-	public static ToolItem MONEY_PICKAXE = new CustomPickaxeItem(MoneyToolMaterial.INSTANCE, 1, 0, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
-	public static ToolItem MONEY_AXE = new CustomAxeItem(MoneyToolMaterial.INSTANCE, 1, 5, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
-	public static ToolItem MONEY_HOE = new CustomHoeItem(MoneyToolMaterial.INSTANCE, 3, -3, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
+	public static ToolItem MONEY_PICKAXE = new CustomPickaxeItem(MoneyToolMaterial.INSTANCE, -1, -2.8F, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
+	public static ToolItem MONEY_AXE = new CustomAxeItem(MoneyToolMaterial.INSTANCE, 4, -3.1F, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
+	public static ToolItem MONEY_HOE = new CustomHoeItem(MoneyToolMaterial.INSTANCE, -4, -1, new Item.Settings().group(DABABY_GROUP).rarity(Rarity.UNCOMMON));
 
 	@Override
 	public void onInitialize() {
