@@ -71,12 +71,12 @@ public class DababyMod implements ModInitializer {
 
 	public static final ConfiguredFeature<?, ?> MONEY_TREE = Feature.TREE
   .configure(new TreeFeatureConfig.Builder(
-    new SimpleBlockStateProvider(MONEY_LEAVES.getDefaultState()), // Trunk block provider
-    new StraightTrunkPlacer(8, 3, 0), // places a straight trunk
-    new SimpleBlockStateProvider(Blocks.DIAMOND_BLOCK.getDefaultState()), // Foliage block provider
-    new SimpleBlockStateProvider(Blocks.AIR.getDefaultState()), // Sapling provider; used to determine what blocks the tree can generate on
-    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3), // places leaves as a blob (radius, offset from trunk, height)
-    new TwoLayersFeatureSize(1, 0, 1) // The width of the tree at different layers; used to see how tall the tree can be without clipping into blocks
+    new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState()),
+    new StraightTrunkPlacer(4, 3, 0),
+    new SimpleBlockStateProvider(MONEY_LEAVES.getDefaultState()),
+    new SimpleBlockStateProvider(Blocks.AIR.getDefaultState()),
+    new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
+    new TwoLayersFeatureSize(1, 0, 1)
 	).ignoreVines().build());
 
 	public static final CustomSaplingBlock COIN_SAPLING = new CustomSaplingBlock(new CustomSaplingFeature(MONEY_TREE), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING));

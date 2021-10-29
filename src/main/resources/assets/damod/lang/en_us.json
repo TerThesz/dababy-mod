@@ -9,5 +9,6 @@
   "item.damod.coin.tooltip": "Coin",
   "item.damod.coin_sapling": "Coin Sapling",
   "item.damod.coin_sapling.tooltip": "Coin Sapling",
-  "block.damod.coin_sapling": "Coin Sapling"
+  "block.damod.coin_sapling": "Coin Sapling",
+  "block.damod.money_leaves": "Money Leaves"
 }
