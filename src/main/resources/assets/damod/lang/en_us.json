@@ -6,5 +6,8 @@
   "item.damod.smooth_stick.tooltip": "Smooth Stick",
   "block.damod.coin_ore": "Coin Ore",
   "item.damod.coin": "Coin",
-  "item.damod.coin.tooltip": "Coin"
+  "item.damod.coin.tooltip": "Coin",
+  "item.damod.coin_sapling": "Coin Sapling",
+  "item.damod.coin_sapling.tooltip": "Coin Sapling",
+  "block.damod.coin_sapling": "Coin Sapling"
 }
