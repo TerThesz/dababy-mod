@@ -1,10 +1,6 @@
 package terthesz.dababy.mod;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -14,7 +10,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.Material;
-import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -53,8 +48,6 @@ import terthesz.dababy.mod.tools.MoneyToolMaterial;
 import terthesz.dababy.mod.villager.CustomVillagerProfession;
 
 public class DababyMod implements ModInitializer {
-	public static final Logger LOGGER = LogManager.getLogger("damod");
-
 	// Dababy Creative Menu Group
 	public static final Item DABABY_GROUP_ITEM = new Item(new FabricItemSettings());
 	public static final ItemGroup DABABY_GROUP = FabricItemGroupBuilder.create(
@@ -216,10 +209,6 @@ public class DababyMod implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("damod", "dababy_pickaxe"), DABABY_PICKAXE);
 		Registry.register(Registry.ITEM, new Identifier("damod", "dababy_axe"), DABABY_AXE);
 		Registry.register(Registry.ITEM, new Identifier("damod", "dababy_hoe"), DABABY_HOE);
-
-		// Render Stuff
-		BlockRenderLayerMap.INSTANCE.putBlock(COIN_SAPLING, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(REINFORCED_GLASS, RenderLayer.getTranslucent());
 	
 		// DaBaby
 		Registry.register(Registry.VILLAGER_PROFESSION, new Identifier("damod", "dababy"), CustomVillagerProfession.DABABY);
