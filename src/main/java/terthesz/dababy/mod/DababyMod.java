@@ -1,12 +1,14 @@
 package terthesz.dababy.mod;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.fabricmc.fabric.api.object.builder.v1.villager.VillagerProfessionBuilder;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 
 import net.minecraft.block.Block;
@@ -14,9 +16,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.Material;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.entity.EntityDimensions;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnGroup;
+import net.minecraft.client.render.debug.VillageDebugRenderer.PointOfInterest;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -31,6 +31,7 @@ import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.village.VillagerProfession;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
@@ -45,6 +46,7 @@ import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
 import terthesz.dababy.mod.blocks.CustomSaplingBlock;
 import terthesz.dababy.mod.features.CustomSaplingFeature;
+import terthesz.dababy.mod.other.CustomVillagerProfession;
 import terthesz.dababy.mod.other.LootTableModifications;
 import terthesz.dababy.mod.tools.CustomAxeItem;
 import terthesz.dababy.mod.tools.CustomHoeItem;
@@ -53,6 +55,8 @@ import terthesz.dababy.mod.tools.DababyToolMaterial;
 import terthesz.dababy.mod.tools.MoneyToolMaterial;
 
 public class DababyMod implements ModInitializer {
+	public static final Logger LOGGER = LogManager.getLogger("damod");
+
 	// Dababy Creative Menu Group
 	public static final Item DABABY_GROUP_ITEM = new Item(new FabricItemSettings());
 	public static final ItemGroup DABABY_GROUP = FabricItemGroupBuilder.create(
@@ -204,5 +208,9 @@ public class DababyMod implements ModInitializer {
 		// Loot Table Modifications
 		LootTableModifications ltm = new LootTableModifications();
 		ltm.modify();
+	
+		// DaBaby
+		Registry.register(Registry.VILLAGER_PROFESSION, new Identifier("damod", "dababy"), CustomVillagerProfession.DABABY);
+		CustomVillagerProfession.addTrades();
 	}
 }

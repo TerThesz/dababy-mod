@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "terthesz.dababy.mod.DababyMod"
+    ],
+    "client": [
+      "terthesz.dababy.mod.DababyModClient"
     ]
   },
   "mixins": [
