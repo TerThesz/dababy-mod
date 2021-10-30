@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "damod:full_swag_capsule"
+        "recipe": "damod:compressed_full_swag_capsule"
       }
     }
   },

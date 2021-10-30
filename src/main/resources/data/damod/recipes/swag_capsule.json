@@ -1,20 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " # ",
-    " @ ",
-    " @ "
+    "@#@",
+    "# #",
+    "@#@"
   ],
   "key": {
     "@": {
-      "item": "damod:smooth_stick"
+      "item": "damod:smooth_plate"
     },
     "#": {
-      "item": "damod:dababy_ingot"
+      "item": "damod:reinforced_glass"
     }
   },
   "result": {
-    "item": "damod:dababy_shovel",
+    "item": "damod:swag_capsule",
     "count": 1
   }
 }

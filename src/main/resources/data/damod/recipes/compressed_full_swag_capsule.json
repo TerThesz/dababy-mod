@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "@#@",
-    "#_#",
+    "#Q#",
     "@#@"
   ],
   "key": {
-    "_": {
+    "Q": {
       "item": "damod:reinforced_glass"
     },
     "@": {
