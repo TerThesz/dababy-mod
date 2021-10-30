@@ -8,6 +8,9 @@
   "client": [
     "DababyMixin"
   ],
+  "server": [
+    "DababyMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }
