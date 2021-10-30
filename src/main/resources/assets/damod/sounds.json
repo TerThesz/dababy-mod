@@ -1,0 +1,58 @@
+{
+  "among_us_sound": {
+    "sounds": [
+      {
+        "name": "damod:records/among_us",
+        "stream": true
+      }
+    ]
+  },
+  "burger_king_sound": {
+    "sounds": [
+      {
+        "name": "damod:records/burger_king",
+        "stream": true
+      }
+    ]
+  },
+  "bzum_bzum_sound": {
+    "sounds": [
+      {
+        "name": "damod:records/bzum_bzum",
+        "stream": true
+      }
+    ]
+  },
+  "gagging_cat_sound": {
+    "sounds": [
+      {
+        "name": "damod:records/gagging_cat",
+        "stream": true
+      }
+    ]
+  },
+  "lets_go_sound": {
+    "sounds": [
+      {
+        "name": "damod:records/lets_go",
+        "stream": true
+      }
+    ]
+  },
+  "pull_up_sound": {
+    "sounds": [
+      {
+        "name": "damod:records/pull_up",
+        "stream": true
+      }
+    ]
+  },
+  "rick_roll_sound": {
+    "sounds": [
+      {
+        "name": "damod:records/rick_roll",
+        "stream": true
+      }
+    ]
+  }
+}

@@ -1,20 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " ##",
-    " @#",
-    " @ "
+    "@#@",
+    "# #",
+    "@#@"
   ],
   "key": {
     "@": {
-      "item": "damod:smooth_stick"
+      "item": "damod:smooth_plate"
     },
     "#": {
-      "item": "damod:money"
+      "item": "minecraft:glass"
     }
   },
   "result": {
-    "item": "damod:money_axe",
+    "item": "damod:reinforced_glass",
     "count": 1
   }
 }

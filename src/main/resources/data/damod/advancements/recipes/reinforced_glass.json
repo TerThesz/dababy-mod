@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "damod:reinforced_glass"
+    ]
+  },
+  "criteria": {
+    "had_smooth_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "damod:smooth_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "damod:reinforced_glass"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "had_smooth_plate",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -8,7 +8,6 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.fabric.api.object.builder.v1.villager.VillagerProfessionBuilder;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 
 import net.minecraft.block.Block;
@@ -16,7 +15,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.Material;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.debug.VillageDebugRenderer.PointOfInterest;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -25,13 +23,13 @@ import net.minecraft.item.ShovelItem;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolItem;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.village.VillagerProfession;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
@@ -46,13 +44,13 @@ import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
 import terthesz.dababy.mod.blocks.CustomSaplingBlock;
 import terthesz.dababy.mod.features.CustomSaplingFeature;
-import terthesz.dababy.mod.other.CustomVillagerProfession;
-import terthesz.dababy.mod.other.LootTableModifications;
+import terthesz.dababy.mod.items.CustomMusicDisc;
 import terthesz.dababy.mod.tools.CustomAxeItem;
 import terthesz.dababy.mod.tools.CustomHoeItem;
 import terthesz.dababy.mod.tools.CustomPickaxeItem;
 import terthesz.dababy.mod.tools.DababyToolMaterial;
 import terthesz.dababy.mod.tools.MoneyToolMaterial;
+import terthesz.dababy.mod.villager.CustomVillagerProfession;
 
 public class DababyMod implements ModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger("damod");
@@ -141,6 +139,24 @@ public class DababyMod implements ModInitializer {
 
 	public static final CustomSaplingBlock COIN_SAPLING = new CustomSaplingBlock(new CustomSaplingFeature(MONEY_TREE), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING));
 
+	// Sounds
+	public static final SoundEvent AMONG_US_SOUND = new SoundEvent(new Identifier("damod", "among_us_sound"));
+	public static final SoundEvent BURGER_KING_SOUND = new SoundEvent(new Identifier("damod", "burger_king_sound"));
+	public static final SoundEvent BZUM_BZUM_SOUND = new SoundEvent(new Identifier("damod", "bzum_bzum_sound"));
+	public static final SoundEvent GAGGING_CAT_SOUND = new SoundEvent(new Identifier("damod", "gagging_cat_sound"));
+	public static final SoundEvent LETS_GO_SOUND = new SoundEvent(new Identifier("damod", "lets_go_sound"));
+	public static final SoundEvent PULL_UP_SOUND = new SoundEvent(new Identifier("damod", "pull_up_sound"));
+	public static final SoundEvent RICK_ROLL_SOUND = new SoundEvent(new Identifier("damod", "rick_roll_sound"));
+
+	// Discs
+	public static final Item AMONG_US_DISC = new CustomMusicDisc(14, AMONG_US_SOUND, new FabricItemSettings().rarity(Rarity.EPIC).group(DABABY_GROUP).maxCount(1));
+	public static final Item BURGER_KING_DISC = new CustomMusicDisc(14, BURGER_KING_SOUND, new FabricItemSettings().rarity(Rarity.EPIC).group(DABABY_GROUP).maxCount(1));
+	public static final Item BZUM_BZUM_DISC = new CustomMusicDisc(14, BZUM_BZUM_SOUND, new FabricItemSettings().rarity(Rarity.EPIC).group(DABABY_GROUP).maxCount(1));
+	public static final Item GAGGING_CAT_DISC = new CustomMusicDisc(14, GAGGING_CAT_SOUND, new FabricItemSettings().rarity(Rarity.EPIC).group(DABABY_GROUP).maxCount(1));
+	public static final Item LETS_GO_DISC = new CustomMusicDisc(14, LETS_GO_SOUND, new FabricItemSettings().rarity(Rarity.EPIC).group(DABABY_GROUP).maxCount(1));
+	public static final Item PULL_UP_DISC = new CustomMusicDisc(14, PULL_UP_SOUND, new FabricItemSettings().rarity(Rarity.EPIC).group(DABABY_GROUP).maxCount(1));
+	public static final Item RICK_ROLL_DISC = new CustomMusicDisc(14, RICK_ROLL_SOUND, new FabricItemSettings().rarity(Rarity.EPIC).group(DABABY_GROUP).maxCount(1));
+
 	@Override
 	public void onInitialize() {
 		// Dababy Creative Menu Item
@@ -204,13 +220,27 @@ public class DababyMod implements ModInitializer {
 		// Render Stuff
 		BlockRenderLayerMap.INSTANCE.putBlock(COIN_SAPLING, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(REINFORCED_GLASS, RenderLayer.getTranslucent());
-
-		// Loot Table Modifications
-		LootTableModifications ltm = new LootTableModifications();
-		ltm.modify();
 	
 		// DaBaby
 		Registry.register(Registry.VILLAGER_PROFESSION, new Identifier("damod", "dababy"), CustomVillagerProfession.DABABY);
 		CustomVillagerProfession.addTrades();
+
+		// Sounds
+		Registry.register(Registry.SOUND_EVENT, new Identifier("damod", "among_us_sound"), AMONG_US_SOUND);
+		Registry.register(Registry.SOUND_EVENT, new Identifier("damod", "burger_king_sound"), BURGER_KING_SOUND);
+		Registry.register(Registry.SOUND_EVENT, new Identifier("damod", "bzum_bzum_sound"), BZUM_BZUM_SOUND);
+		Registry.register(Registry.SOUND_EVENT, new Identifier("damod", "gagging_cat_sound"), GAGGING_CAT_SOUND);
+		Registry.register(Registry.SOUND_EVENT, new Identifier("damod", "lets_go_sound"), LETS_GO_SOUND);
+		Registry.register(Registry.SOUND_EVENT, new Identifier("damod", "pull_up_sound"), PULL_UP_SOUND);
+		Registry.register(Registry.SOUND_EVENT, new Identifier("damod", "rick_roll_sound"), RICK_ROLL_SOUND);
+	
+		// Discs
+		Registry.register(Registry.ITEM, new Identifier("damod", "music_disc_among_us"), AMONG_US_DISC);
+		Registry.register(Registry.ITEM, new Identifier("damod", "music_disc_burger_king"), BURGER_KING_DISC);
+		Registry.register(Registry.ITEM, new Identifier("damod", "music_disc_bzum_bzum"), BZUM_BZUM_DISC);
+		Registry.register(Registry.ITEM, new Identifier("damod", "music_disc_gagging_cat"), GAGGING_CAT_DISC);
+		Registry.register(Registry.ITEM, new Identifier("damod", "music_disc_lets_go"), LETS_GO_DISC);
+		Registry.register(Registry.ITEM, new Identifier("damod", "music_disc_pull_up"), PULL_UP_DISC);
+		Registry.register(Registry.ITEM, new Identifier("damod", "music_disc_rick_roll"), RICK_ROLL_DISC);
 	}
 }

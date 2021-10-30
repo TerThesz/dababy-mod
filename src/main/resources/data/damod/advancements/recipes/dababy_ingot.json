@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "damod:dababy_ingot"
+    ]
+  },
+  "criteria": {
+    "had_dababy_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "damod:dababy_ore"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "damod:dababy_ingot"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "had_dababy_ore",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,8 +1,8 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " ##",
-    " @#",
+    " # ",
+    " @ ",
     " @ "
   ],
   "key": {
@@ -10,11 +10,11 @@
       "item": "damod:smooth_stick"
     },
     "#": {
-      "item": "damod:money"
+      "item": "damod:dababy_ore"
     }
   },
   "result": {
-    "item": "damod:money_axe",
+    "item": "damod:dababy_shovel",
     "count": 1
   }
 }

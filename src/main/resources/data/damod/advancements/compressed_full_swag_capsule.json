@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "damod:compressed_full_swag_capsule"
+    },
+    "title": "The Swag Lord",
+    "description": "Acquire a Compressed Full Swag Capsule",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "Acquire DaIngot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "damod:compressed_full_swag_capsule"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

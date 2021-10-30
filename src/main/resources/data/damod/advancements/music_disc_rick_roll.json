@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "damod:music_disc_rick_roll"
+    },
+    "title": "The Funny Stuff",
+    "description": "Acquire A Rick Roll Disc",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "Acquire DaIngot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "damod:music_disc_rick_roll"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

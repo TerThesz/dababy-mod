@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "damod:coin_sapling"
+    ]
+  },
+  "criteria": {
+    "had_coin": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "damod:coin"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "damod:coin_sapling"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "had_coin",
+      "has_the_recipe"
+    ]
+  ]
+}

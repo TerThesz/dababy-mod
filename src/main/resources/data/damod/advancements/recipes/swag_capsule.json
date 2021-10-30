@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "damod:swag_capsule"
+    ]
+  },
+  "criteria": {
+    "had_smooth_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "damod:smooth_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "damod:swag_capsule"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "had_smooth_plate",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "damod:money_hoe"
+    ]
+  },
+  "criteria": {
+    "had_money": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "damod:money"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "damod:money_hoe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "had_money",
+      "has_the_recipe"
+    ]
+  ]
+}

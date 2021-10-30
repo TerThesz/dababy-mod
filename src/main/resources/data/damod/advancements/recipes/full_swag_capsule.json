@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "damod:full_swag_capsule"
+    ]
+  },
+  "criteria": {
+    "had_swag_capsule": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "damod:swag_capsule"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "damod:full_swag_capsule"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "had_swag_capsule",
+      "has_the_recipe"
+    ]
+  ]
+}

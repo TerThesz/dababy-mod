@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "@#@",
+    "#_#",
+    "@#@"
+  ],
+  "key": {
+    "_": {
+      "item": "damod:reinforced_glass"
+    },
+    "@": {
+      "item": "damod:smooth_plate"
+    },
+    "#": {
+      "item": "damod:full_swag_capsule"
+    }
+  },
+  "result": {
+    "item": "damod:compressed_full_swag_capsule",
+    "count": 1
+  }
+}
