@@ -11,7 +11,14 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "damod:drop_of_swag",
+"name": "damod:drop_of_swag",
+          "count": 4,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 4
+            }
+          ],
           "conditions": [
             {
               "condition": "minecraft:damage_source_properties",

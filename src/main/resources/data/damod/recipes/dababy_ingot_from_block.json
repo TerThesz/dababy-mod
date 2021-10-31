@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "damod:dababy_block"
+    }
+  },
+  "result": {
+    "item": "damod:dababy_ingot",
+    "count": 9
+  }
+}
